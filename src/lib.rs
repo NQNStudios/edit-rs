@@ -12,6 +12,7 @@ use subprocess::{Exec, Redirection};
 // text editor. Its logic is based on how Git command-line chooses an editor:
 // https://github.com/git/git/blob/936d1b989416a95f593bf81ccae8ac62cd83f279/editor.c
 
+#[derive(Debug)]
 pub enum Error {
     NoEditor(&'static str),
     IOError(io::Error),
