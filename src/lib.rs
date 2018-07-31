@@ -37,7 +37,7 @@ fn is_terminal_dumb() -> bool {
     }
 }
 
-fn text_editor() -> Result<OsString, Error> {
+pub fn text_editor() -> Result<OsString, Error> {
     let mut editor = env::var_os("EDITRS_EDITOR");
     let terminal_is_dumb = is_terminal_dumb();
 
@@ -59,7 +59,7 @@ fn text_editor() -> Result<OsString, Error> {
     Ok(editor)
 }
 
-fn get_input(default_value: &str) -> Result<String, Error> {
+pub fn get_input(default_value: &str) -> Result<String, Error> {
     let file = OpenOptions::new().write(true).create(true).open(".EDITRS_EDITOR_INPUT")?;
     // If a default value is given, write it to the file before opening it
     file.set_len(0);
