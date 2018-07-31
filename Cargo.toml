@@ -2,6 +2,8 @@
 name = "edit-rs"
 version = "0.1.0"
 authors = ["Nat Quayle Nelson <natquaylenelson@gmail.com>"]
+description = "Let the user input multiline strings using their favorite text editor"
+license = "GPLv3.0"
 
 [dependencies]
 subprocess = "0.1.13"
