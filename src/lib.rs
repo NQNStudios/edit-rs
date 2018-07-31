@@ -62,7 +62,7 @@ pub fn text_editor() -> Result<OsString, Error> {
 pub fn get_input(default_value: &str) -> Result<String, Error> {
     let file = OpenOptions::new().write(true).create(true).open(".EDITRS_EDITOR_INPUT")?;
     // If a default value is given, write it to the file before opening it
-    file.set_len(0);
+    file.set_len(0)?;
     Exec::cmd("echo").arg(default_value).stdout(Redirection::File(file)).join()?;
 
 
