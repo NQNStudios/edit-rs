@@ -64,11 +64,11 @@ pub fn get_input(default_value: &str) -> Result<String, Error> {
     let file = OpenOptions::new().write(true).create(true).open(".EDITRS_EDITOR_INPUT")?;
     // If a default value is given, write it to the file before opening it
     file.set_len(0)?;
-    Exec::shell("echo").arg(default_value).stdout(Redirection::File(file)).join()?;
+    Exec::cmd("echo").arg(default_value).stdout(Redirection::File(file)).join()?;
 
 
     // Open the user's text editor and wait for them to close it
-    Exec::shell(text_editor()?).arg(".EDITRS_EDITOR_INPUT").join()?;
+    Exec::cmd(text_editor()?).arg(".EDITRS_EDITOR_INPUT").join()?;
     let mut file = OpenOptions::new().read(true).open(".EDITRS_EDITOR_INPUT")?;
     let mut file_buffer = String::new();
     file.read_to_string(&mut file_buffer)?;
