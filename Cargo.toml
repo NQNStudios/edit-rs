@@ -1,6 +1,6 @@
 [package]
 name = "edit-rs"
-version = "0.1.1"
+version = "0.2.1"
 authors = ["Nat Quayle Nelson <natquaylenelson@gmail.com>"]
 description = "Let the user input multiline strings using their favorite text editor"
 license = "GPL-3.0"
